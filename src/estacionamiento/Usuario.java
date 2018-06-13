@@ -5,6 +5,9 @@
  */
 package estacionamiento;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author agustin
@@ -14,15 +17,20 @@ public class Usuario {
     private String nombre;
     private String nombreUsuario;
     private String password;
+    private List<Permiso> permisos;
 
     public Usuario(String apellido, String nombre, String nombreUsuario, String password) {
         this.apellido = apellido;
         this.nombre = nombre;
         this.nombreUsuario = nombreUsuario;
         this.password = password;
+        permisos = new ArrayList<>();
+    }
+
+    Usuario() {
     }
     
-    public void conocerPermisos(){
-        
+    public List<Permiso> conocerPermisos(){
+        return permisos;
     }
 }

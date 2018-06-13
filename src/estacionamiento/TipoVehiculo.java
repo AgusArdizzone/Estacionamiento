@@ -12,6 +12,7 @@ package estacionamiento;
 public class TipoVehiculo {
     private String descripcion; 
     private String nombre;
+    private Tarifa tarifa;
 
     public TipoVehiculo(String descripcion, String nombre) {
         this.descripcion = descripcion;

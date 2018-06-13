@@ -5,6 +5,9 @@
  */
 package estacionamiento;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author agustin
@@ -13,31 +16,38 @@ public class Propietario {
     private String apellido;
     private String dni;
     private String nombre;
+    private AbonoPropietario abono;
+    private List<Vehiculo> vehiculos;
 
     public Propietario(String apellido, String dni, String nombre) {
         this.apellido = apellido;
         this.dni = dni;
         this.nombre = nombre;
+        this.abono = new AbonoPropietario();
+        vehiculos = new ArrayList<>();
+    }
+
+    public Propietario() {
     }
     
     public float acreditarMonto(float monto){
         return 0;
     }
     
-    public void calcularSaldoActual(){
-    
+    public float calcularSaldoActual(){
+       return this.abono.getSaldoActual();
     }
     
     public void ConocerVehiculo(){
         
     }
     
-    public void cuantosIngresosPeriodo(){
-        
+    public int cuantosIngresosPeriodo(){
+        return this.abono.conocerIngresos().size();
     }
     
-    public void obtenerVehiculosPropietario(){
-        
+    public List<Vehiculo> obtenerVehiculosPropietario(){
+        return this.vehiculos;
     }
 
     public String getApellido() {

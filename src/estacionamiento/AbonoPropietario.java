@@ -6,6 +6,7 @@
 package estacionamiento;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -17,16 +18,21 @@ public class AbonoPropietario {
     private float montoCobrado;
     private int nroComprobante;
     private float saldoActual;
+    private Propietario propietario;
+    private Usuario usuario;
+    private List<Ingreso> ingresos;
 
     public AbonoPropietario() {
     }
     
-    public AbonoPropietario(Date fecha, Date hora, float montoCobrado, int nroComprobante, float saldoActual) {
+    public AbonoPropietario(Date fecha, Date hora, float montoCobrado, int nroComprobante, float saldoActual,Propietario propietario) {
         this.fecha = fecha;
         this.hora = hora;
         this.montoCobrado = montoCobrado;
         this.nroComprobante = nroComprobante;
         this.saldoActual = saldoActual;
+        this.propietario = propietario;
+        usuario = new Usuario();
     }
 
     public Date getFecha() {
@@ -67,8 +73,8 @@ public class AbonoPropietario {
     
     
     
-    public void conocerIngreso(){
-            
+    public List<Ingreso> conocerIngresos(){
+            return this.ingresos;
     }
     
     public void mostrarFechaYHora(){

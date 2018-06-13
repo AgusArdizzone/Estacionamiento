@@ -11,15 +11,20 @@ package estacionamiento;
  */
 public class Vehiculo {
     private String dominio;
+    private Modelo modelo;
+    private TipoVehiculo tipo;
 
     public Vehiculo() {
     }
 
-    public Vehiculo(String dominio) {
+    public Vehiculo(String dominio, Modelo modelo, TipoVehiculo tipo) {
         this.dominio = dominio;
+        this.modelo = modelo;
+        this.tipo = tipo;
     }
+
     
-    public void conocerModelo(){
-        
+    public Modelo conocerModelo(){
+        return modelo;
     }
 }

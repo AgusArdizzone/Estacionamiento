@@ -9,11 +9,14 @@ package estacionamiento;
  *
  * @author agustin
  */
-public class Modelo {
-    private String modelo;
+public enum Modelo {
+    CORSA_XLS(Marca.RENAULT, 23);
+    
+    private Marca marca;
+    private int codigo;
 
-    public Modelo(String modelo) {
-        this.modelo = modelo;
+    Modelo(Marca marca, int codigo){
+    this.marca = marca;
+    this.codigo = codigo;
     }
-
 }

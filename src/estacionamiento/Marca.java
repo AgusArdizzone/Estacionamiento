@@ -9,11 +9,7 @@ package estacionamiento;
  *
  * @author agustin
  */
-public class Marca {
-    private String nombre;
-
-    public Marca(String nombre) {
-        this.nombre = nombre;
-    }
+public enum Marca {
+    FIAT, AUDI, RENAULT;
     
 }

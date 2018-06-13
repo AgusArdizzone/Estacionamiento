@@ -10,5 +10,6 @@ package estacionamiento;
  * @author agustin
  */
 public class Porton {
-    
+    private String descripcion;
+    private String nombre;
 }
