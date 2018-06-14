@@ -23,7 +23,6 @@ public class Propietario {
         this.apellido = apellido;
         this.dni = dni;
         this.nombre = nombre;
-        this.abono = new AbonoPropietario();
         vehiculos = new ArrayList<>();
     }
 
@@ -42,10 +41,17 @@ public class Propietario {
 
     
     public void acreditarMonto(float monto){
+        if(abono==null){
+            abono = new AbonoPropietario(monto, 0, 0, this);
+        }
+        this.abono.setMontoCobrado(monto);
         this.abono.setSaldoActual(monto);
     }
     
     public float calcularSaldoActual(){
+        if(abono==null){
+            return 0;
+        }
        return this.abono.getSaldoActual();
     }
     
@@ -85,5 +91,8 @@ public class Propietario {
         this.nombre = nombre;
     }
     
+    public String toString(){
+        return ""+nombre+" "+apellido+" DNI:"+dni+" Saldo actual: "+ calcularSaldoActual();
+    }
     
 }

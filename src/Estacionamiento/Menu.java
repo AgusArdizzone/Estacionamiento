@@ -21,20 +21,31 @@ public class Menu {
     
     public boolean launch(){
         int seleccion;
-        System.out.println("Ingrese una opcion:");
+        System.out.println("\nIngrese una opcion:");
         System.out.println("1) Agregar saldo a una persona");
-        System.out.println("2) Salir");
+        System.out.println("2) Listar Propietarios");
+        System.out.println("3) Salir\n");
         seleccion = scan.nextInt();
         switch(seleccion){
             case 1:
                 agregarSaldo();
                 return true;
             case 2:
+                listarPropietarios();
+                return true;
+            case 3:
                 return false;
             default:
+                System.out.println("Opcion incorrecta");
                 return true;
         }
         
+    }
+    
+    private void listarPropietarios(){
+        for (Propietario propietario : propietarios) {
+            System.out.println(propietario.toString());
+        }
     }
     
     private void agregarSaldo(){
