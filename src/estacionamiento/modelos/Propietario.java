@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package estacionamiento;
+package estacionamiento.modelos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +30,8 @@ public class Propietario {
     public Propietario() {
     }
     
-    public float acreditarMonto(float monto){
-        return 0;
+    public void acreditarMonto(float monto){
+        this.abono.setSaldoActual(monto);
     }
     
     public float calcularSaldoActual(){

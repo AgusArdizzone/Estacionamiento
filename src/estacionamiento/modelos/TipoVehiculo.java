@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package estacionamiento;
+package estacionamiento.modelos;
 
 /**
  *
@@ -17,6 +17,7 @@ public class TipoVehiculo {
     public TipoVehiculo(String descripcion, String nombre) {
         this.descripcion = descripcion;
         this.nombre = nombre;
+        tarifa = new Tarifa(this);
     }
     
     

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package estacionamiento;
+package estacionamiento.modelos;
 
 import java.util.Date;
 import java.util.List;
@@ -68,7 +68,7 @@ public class AbonoPropietario {
     }
 
     public void setSaldoActual(float saldoActual) {
-        this.saldoActual = saldoActual;
+        this.saldoActual += saldoActual;
     }
     
     

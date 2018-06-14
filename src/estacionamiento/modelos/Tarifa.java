@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package estacionamiento;
+package estacionamiento.modelos;
 
 import java.util.Date;
 
@@ -16,6 +16,7 @@ public class Tarifa {
     private boolean esDeAbono;
     private Date fecha;
     private float montoIngreso;
+    private TipoVehiculo tipovehiculo;
 
     public Tarifa(int cantidadIngresosSinSaldo, boolean esDeAbono, Date fecha, float montoIngreso) {
         this.cantidadIngresosSinSaldo = cantidadIngresosSinSaldo;
@@ -23,8 +24,12 @@ public class Tarifa {
         this.fecha = fecha;
         this.montoIngreso = montoIngreso;
     }
+
+    Tarifa(TipoVehiculo tipo) {
+        this.tipovehiculo = tipo;
+    }
     
-    public void conocerTipoVehiculo(){
-        
+    public TipoVehiculo conocerTipoVehiculo(){
+        return tipovehiculo;
     }
 }
