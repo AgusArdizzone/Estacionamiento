@@ -20,42 +20,11 @@ public class Estacionamiento {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ProveedorPropietarios provProp = new ProveedorPropietarios();
-        List<Propietario> propietarios = provProp.darListaPropietarios();
-        
-        float monto;
-        String dni;
-        Scanner scan = new Scanner(System.in);
-        Propietario actualProp;
-        System.out.println("Ingrese DNI del propietario");
-        dni = scan.next();
-        if(validarDNI(dni)){
-           if(userEnBaseDatos(propietarios,dni)){
-               actualProp = provProp.buscarPropietario(dni);
-               System.out.println("Ingrese monto a acreditar");
-               monto = scan.nextFloat();
-               if(monto<=0){
-                   System.out.println("monto no valido");
-               }else{
-                   System.out.println("Acreditara $"+monto+" a su cuenta");
-                   actualProp.acreditarMonto(monto);
-                   System.out.println("Su saldo actual es: "+ actualProp.calcularSaldoActual());
-               }
-           }
+
+        Menu menu = new Menu();
+        while(menu.launch()){
         }
     }
     
-    public static boolean userEnBaseDatos(List<Propietario> props, String dni){
-        for(Propietario propietario : props){
-            if(dni.equals(propietario.getDni())){
-                return true;
-            }
-        }
-        return false;
-    }
-    
-    public static boolean validarDNI(String dni){
-        return !dni.isEmpty();
-    }
     
 }
