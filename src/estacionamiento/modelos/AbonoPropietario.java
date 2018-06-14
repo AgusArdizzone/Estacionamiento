@@ -25,13 +25,11 @@ public class AbonoPropietario {
     public AbonoPropietario() {
     }
     
-    public AbonoPropietario(Date fecha, Date hora, float montoCobrado, int nroComprobante, float saldoActual,Propietario propietario) {
-        this.fecha = fecha;
-        this.hora = hora;
-        this.montoCobrado = montoCobrado;
+    public AbonoPropietario(float montoCobrado, int nroComprobante, float saldoActual,Propietario prop) {
+       this.montoCobrado = montoCobrado;
         this.nroComprobante = nroComprobante;
         this.saldoActual = saldoActual;
-        this.propietario = propietario;
+        this.propietario = prop;
         usuario = new Usuario();
     }
 

@@ -27,8 +27,19 @@ public class Propietario {
         vehiculos = new ArrayList<>();
     }
 
+    public Propietario(String apellido, String dni, String nombre,float saldoInicial) {
+        this.apellido = apellido;
+        this.dni = dni;
+        this.nombre = nombre;
+        this.abono = abono;
+        this.vehiculos = vehiculos;
+        this.abono = new AbonoPropietario( 0, 0, saldoInicial, this);
+    }
+    
+
     public Propietario() {
     }
+
     
     public void acreditarMonto(float monto){
         this.abono.setSaldoActual(monto);

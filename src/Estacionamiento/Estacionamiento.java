@@ -5,8 +5,8 @@
  */
 package Estacionamiento;
 
+import Estacionamiento.proveedores.ProveedorPropietarios;
 import estacionamiento.modelos.Propietario;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,24 +20,26 @@ public class Estacionamiento {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        List<Propietario> propietarios = new ArrayList<>();
-        Propietario juan = new Propietario("Perez", "1", "Juan");
-        propietarios.add(juan);
+        ProveedorPropietarios provProp = new ProveedorPropietarios();
+        List<Propietario> propietarios = provProp.darListaPropietarios();
+        
         float monto;
         String dni;
         Scanner scan = new Scanner(System.in);
+        Propietario actualProp;
         System.out.println("Ingrese DNI del propietario");
         dni = scan.next();
         if(validarDNI(dni)){
            if(userEnBaseDatos(propietarios,dni)){
+               actualProp = provProp.buscarPropietario(dni);
                System.out.println("Ingrese monto a acreditar");
                monto = scan.nextFloat();
                if(monto<=0){
                    System.out.println("monto no valido");
                }else{
                    System.out.println("Acreditara $"+monto+" a su cuenta");
-                   juan.acreditarMonto(monto);
-                   System.out.println("Su saldo actual es: "+ juan.calcularSaldoActual());
+                   actualProp.acreditarMonto(monto);
+                   System.out.println("Su saldo actual es: "+ actualProp.calcularSaldoActual());
                }
            }
         }
