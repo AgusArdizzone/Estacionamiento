@@ -17,5 +17,11 @@ public class Permiso {
         this.descripcion = descripcion;
         this.nombre = nombre;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+    
+    
        
 }

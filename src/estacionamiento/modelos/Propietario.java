@@ -30,8 +30,6 @@ public class Propietario {
         this.apellido = apellido;
         this.dni = dni;
         this.nombre = nombre;
-        this.abono = abono;
-        this.vehiculos = vehiculos;
         this.abono = new AbonoPropietario( 0, 0, saldoInicial, this);
     }
     
@@ -57,6 +55,14 @@ public class Propietario {
     
     public void ConocerVehiculo(){
         
+    }
+
+    public AbonoPropietario getAbono() {
+        return abono;
+    }
+    
+    public void addVehiculo(Vehiculo vehiculo){
+        vehiculos.add(vehiculo);
     }
     
     public int cuantosIngresosPeriodo(){
@@ -91,6 +97,7 @@ public class Propietario {
         this.nombre = nombre;
     }
     
+    @Override
     public String toString(){
         return ""+nombre+" "+apellido+" DNI:"+dni+" Saldo actual: "+ calcularSaldoActual();
     }

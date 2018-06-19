@@ -18,8 +18,13 @@ public class Menu {
     private ProveedorPropietarios provProp = new ProveedorPropietarios();
     private List<Propietario> propietarios = provProp.darListaPropietarios();
     private Scanner scan = new Scanner(System.in);
+    private ControladorVistas controlador;
     
-    public boolean launch(){
+    public Menu(ControladorVistas controlador){
+        this.controlador=controlador;
+    }
+    
+    public void launch(){
         int seleccion;
         System.out.println("\nIngrese una opcion:");
         System.out.println("1) Agregar saldo a una persona");
@@ -29,15 +34,15 @@ public class Menu {
         switch(seleccion){
             case 1:
                 agregarSaldo();
-                return true;
+                launch();
             case 2:
                 listarPropietarios();
-                return true;
+                launch();
             case 3:
-                return false;
+                controlador.lanzarInicioSesion();
             default:
                 System.out.println("Opcion incorrecta");
-                return true;
+                launch();
         }
         
     }
@@ -65,6 +70,7 @@ public class Menu {
                    System.out.println("Acreditara $"+monto+" a su cuenta");
                    actualProp.acreditarMonto(monto);
                    System.out.println("Su saldo actual es: "+ actualProp.calcularSaldoActual());
+                   imprimirComprobante(actualProp);
                }
            }
         }
@@ -82,5 +88,13 @@ public class Menu {
     private boolean validarDNI(String dni){
         return !dni.isEmpty();
     }
+    
+    private void imprimirComprobante(Propietario prop){
+        System.out.println("----TICKET----");
+        System.out.println("NRO°"+prop.getAbono().getNroComprobante());
+        System.out.println("Monto Cargado: "+prop.getAbono().getMontoCobrado());
+        System.out.println("Saldo Actual: "+prop.calcularSaldoActual());
+    }
+
     
 }

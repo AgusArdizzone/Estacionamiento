@@ -17,20 +17,30 @@ public class Usuario {
     private String nombre;
     private String nombreUsuario;
     private String password;
-    private List<Permiso> permisos;
+    private Permiso permiso;
 
-    public Usuario(String apellido, String nombre, String nombreUsuario, String password) {
+    public Usuario(String apellido, String nombre, String nombreUsuario, String password,Permiso perm) {
         this.apellido = apellido;
         this.nombre = nombre;
         this.nombreUsuario = nombreUsuario;
         this.password = password;
-        permisos = new ArrayList<>();
+        this.permiso= perm;
     }
 
     Usuario() {
     }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public String getPassword() {
+        return password;
+    }
     
-    public List<Permiso> conocerPermisos(){
-        return permisos;
+    
+    
+    public Permiso conocerPermiso(){
+        return permiso;
     }
 }

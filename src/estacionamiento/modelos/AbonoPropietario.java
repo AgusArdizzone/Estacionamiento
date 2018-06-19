@@ -49,6 +49,11 @@ public class AbonoPropietario {
         return nroComprobante;
     }
 
+    public float getMontoCobrado() {
+        return montoCobrado;
+    }
+    
+
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
